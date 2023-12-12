@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/card_background">
+
+        <ImageView
+            android:id="@+id/iv_character"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:src="@color/text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_character_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/iv_character"
+            app:layout_constraintStart_toEndOf="@id/iv_character"
+            android:text="Cid Kagenou"
+            android:maxWidth="100dp"
+            android:textColor="@color/text"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/iv_character"
+            app:layout_constraintStart_toEndOf="@id/iv_character"
+            android:text="Main"
+            android:textColor="@color/text"
+            android:textSize="15sp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="5dp"/>
+
+        <ImageView
+            android:id="@+id/iv_actor"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:src="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_actor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="100dp"
+            android:textAlignment="textEnd"
+            android:maxLines="2"
+            android:text="Seiichirou Yamashita"
+            android:textColor="@color/text"
+            android:textSize="15sp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toTopOf="@id/iv_actor"
+            app:layout_constraintEnd_toStartOf="@id/iv_actor"/>
+
+        <TextView
+            android:id="@+id/tv_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Japanese"
+            app:layout_constraintEnd_toStartOf="@id/iv_actor"
+            app:layout_constraintBottom_toBottomOf="@id/iv_actor"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/text"
+            android:textSize="15sp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>

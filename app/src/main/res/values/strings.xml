@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Ani List</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">The next-generation anime platform</string>
+    <string name="title2">Track, share and discover your favorite anime and manga</string>
+    <string name="browse">Browse</string>
+    <string name="trending">Trending now</string>
+    <string name="popular_this_season">Popular this season</string>
+    <string name="upcoming_this_season">Upcoming this season</string>
+    <string name="view_all">View all</string>
+    <string name="all_time_popular">All time popular</string>
+    <string name="ranking">Top 100 anime</string>
+    <string name="ranking_id">#%1$d</string>
+    <string name="add_to_favorite">Add to favorite</string>
+    <string name="text_test">
+        The second season of <i>Kage no Jitsuryokusha ni Naritakute!</i>
+
+        Everything has been going according to plan, but the hour of awakening draws near. Cid Kagenou and Shadow Garden investigate the Lawless City, a cesspool where the red moon hangs low in the sky and three powerful monarchs rule the streets. The true draw for Cid, however, is one who can draw blood–the Blood Queen, a vampire who has slumbered in her coffin for eons. Her awakening approaches, and Cid could finally face a day of reckoning.
+
+        Source: HIDIVE, edited)
+
+        Note: A world premiere screening of Episode 1 was shown in the The Eminence in Shadow 2nd Season panel at Anime Expo on July 1, 2023.
+    </string>
+
+    <string-array name="type">
+        <item>Anime</item>
+        <item>Manga</item>
+        <item>Characters</item>
+    </string-array>
+
+    <string-array name="language">
+        <item>Japanese</item>
+        <item>English</item>
+    </string-array>
+</resources>

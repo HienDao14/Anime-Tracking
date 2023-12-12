@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="10dp"
+    android:background="@color/card_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <ImageView
+        android:id="@+id/iv_relation"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:src="@color/red"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    
+    <TextView
+        android:id="@+id/tv_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toTopOf="@id/iv_relation"
+        app:layout_constraintStart_toEndOf="@id/iv_relation"
+        android:text="Adaption"
+        android:textColor="@color/light_blue"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
+    
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_source"
+        app:layout_constraintStart_toEndOf="@id/iv_relation"
+        android:text="Tokyo Revenge"
+        android:textColor="@color/text"
+        android:textSize="15sp"/>
+    
+    <TextView
+        android:id="@+id/tv_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/iv_relation"
+        app:layout_constraintStart_toEndOf="@id/iv_relation"
+        android:layout_margin="10dp"
+        android:text="Manga"
+        android:textColor="@color/text"
+        android:textSize="15sp"/>
+
+        
+</androidx.constraintlayout.widget.ConstraintLayout>

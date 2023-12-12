@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.anilist.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_trendingViewAll"
+            app:destination="@id/trendingViewAll" />
+        <action
+            android:id="@+id/action_homeFragment_to_rankingViewAllFragment"
+            app:destination="@id/rankingViewAllFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.anilist.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="malId"
+            app:argType="integer" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.anilist.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+    </fragment>
+    <fragment
+        android:id="@+id/trendingViewAll"
+        android:name="com.example.anilist.ui.fragment.ViewAllFragment"
+        android:label="fragment_trending_view_all"
+        tools:layout="@layout/fragment_trending_view_all" >
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_trendingViewAll_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rankingViewAllFragment"
+        android:name="com.example.anilist.ui.fragment.RankingViewAllFragment"
+        android:label="fragment_ranking_view_all"
+        tools:layout="@layout/fragment_ranking_view_all" >
+        <action
+            android:id="@+id/action_rankingViewAllFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/animeHomeFragment2"
+        android:name="com.example.anilist.ui.fragment.AnimeHomeFragment"
+        android:label="fragment_anime_home"
+        tools:layout="@layout/fragment_anime_home" >
+        <action
+            android:id="@+id/action_animeHomeFragment2_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+</navigation>
