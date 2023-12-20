@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.PopupWindow
+import android.widget.Spinner
 import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
@@ -102,6 +104,9 @@ class HomeFragment : Fragment() {
                     1 -> {
                         val searchBundle = bundleOf("searchText" to binding.searchField.text.toString())
                         this@HomeFragment.findNavController().navigate(R.id.action_homeFragment_to_searchFragment, searchBundle)
+                    }
+                    2 -> {
+                        this@HomeFragment.findNavController().navigate(R.id.action_homeFragment_to_favoriteFragment)
                     }
                 }
             }

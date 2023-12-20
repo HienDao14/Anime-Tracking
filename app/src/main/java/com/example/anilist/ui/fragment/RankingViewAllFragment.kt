@@ -38,7 +38,7 @@ class RankingViewAllFragment : Fragment() {
         lifecycleScope.launch {
             binding.rankingLoading.visibility = View.VISIBLE
             viewModel.setUpRankingLoadingBar(binding.rankingLoading)
-            for(i in 1..3){
+            for(i in 1..1){
                 viewModel.getRankingAnime(i)
                 viewModel.rankingAnimeLiveData.observe(viewLifecycleOwner, Observer {
                     rankingAdapter.setAniList(it)

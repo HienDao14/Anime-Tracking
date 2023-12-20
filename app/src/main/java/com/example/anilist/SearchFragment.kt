@@ -39,6 +39,7 @@ class SearchFragment : Fragment() {
 
         viewModel.setSearchText(searchText)
         animeAdapter = AniAdapter()
+        animeAdapter.setLayout("Search")
         return binding.root
     }
 

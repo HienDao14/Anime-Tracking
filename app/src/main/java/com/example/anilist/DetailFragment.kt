@@ -6,30 +6,40 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.anilist.adapter.ViewPager2Adapter
+import com.example.anilist.database.FavoriteAnime
+import com.example.anilist.database.FavoriteAnimeApplication
 import com.example.anilist.databinding.FragmentDetailBinding
-import com.example.anilist.pojo.Anime
 import com.example.anilist.pojo.AnimeFull
+import com.example.anilist.viewModel.AnimeViewModelFactory
 import com.example.anilist.viewModel.DetailViewModel
+import com.example.anilist.viewModel.FavoriteViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 
-
 class DetailFragment : Fragment() {
     private lateinit var binding : FragmentDetailBinding
     private lateinit var anime : AnimeFull
+    private lateinit var favoriteAnime: FavoriteAnime
     private var imageUrl: String = ""
     private var youtubeId: String = ""
     private var animeTitle: String = ""
     private var malId : Int = 0
     private val args : DetailFragmentArgs by navArgs()
     private val viewModel : DetailViewModel by viewModels()
-
+    private val favoriteViewModel: FavoriteViewModel by activityViewModels {
+        AnimeViewModelFactory(
+            (activity?.application as FavoriteAnimeApplication).database.animeDao()
+        )
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         malId = args.malId
@@ -50,6 +60,17 @@ class DetailFragment : Fragment() {
         viewModel.getAnimeById(malId)
         observeAnimeFullLiveData()
         Log.d("DetailFragment", malId.toString())
+        onEventClick()
+    }
+
+    private fun onEventClick(){
+        binding.btnAddFavorite.setOnClickListener {
+            favoriteViewModel.addNewAnime(
+                favoriteAnime.malId, favoriteAnime.title, favoriteAnime.imageUrl,
+                favoriteAnime.score, favoriteAnime.airing
+            )
+            Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
+        }
     }
 
 //    override fun onDestroyView() {
@@ -109,6 +130,7 @@ class DetailFragment : Fragment() {
             animeTitle = anime.data.title
             bindVideoPlayer()
             bindAnotherView()
+            setFavoriteAnime()
             binding.viewPager2.adapter = ViewPager2Adapter(requireActivity(), malId, anime)
             TabLayoutMediator(binding.tabLayout, binding.viewPager2) {tab, position ->
                 when(position){
@@ -122,5 +144,15 @@ class DetailFragment : Fragment() {
                 }
             }.attach()
         })
+    }
+
+    private fun setFavoriteAnime() {
+        favoriteAnime = FavoriteAnime(
+            anime.data.mal_id,
+            anime.data.title,
+            anime.data.images.jpg.image_url,
+            anime.data.score,
+            anime.data.status
+        )
     }
 }

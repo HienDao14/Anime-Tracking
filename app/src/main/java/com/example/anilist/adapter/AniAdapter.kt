@@ -10,6 +10,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.anilist.HomeFragmentDirections
+import com.example.anilist.SearchFragmentDirections
 import com.example.anilist.databinding.RecyclerViewItemBinding
 import com.example.anilist.pojo.Anime
 import com.example.anilist.ui.fragment.ViewAllFragmentDirections
@@ -55,7 +56,12 @@ class AniAdapter : RecyclerView.Adapter<AniAdapter.AniViewHolder>() {
                 val action = HomeFragmentDirections
                     .actionHomeFragmentToDetailFragment(ani.mal_id)
                 holder.itemView.findNavController().navigate(action)
-            } else {
+            } else if(layout == "Search"){
+                val action = SearchFragmentDirections
+                    .actionSearchFragmentToDetailFragment(ani.mal_id)
+                holder.itemView.findNavController().navigate(action)
+            }
+            else {
                 val action = ViewAllFragmentDirections
                     .actionTrendingViewAllToDetailFragment(ani.mal_id)
                 holder.itemView.findNavController().navigate(action)

@@ -26,7 +26,7 @@
     <string-array name="type">
         <item>Anime</item>
         <item>Manga</item>
-        <item>Characters</item>
+        <item>Favorite</item>
     </string-array>
 
     <string-array name="language">
